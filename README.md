@@ -1,11 +1,7 @@
-# Repo for UNI Webes Adatkezelő környezetek
+# Webes Adatkezelő környezetek
 
-## Info for my self
+## A repository célja
 
-Fort the assignment use LaTEX for documentation
+A tantárgy gyakorlaton végzett feladatai NEPUNKÓD_HÓNAPNAP nevű mappáiba van szervez
 
-1. Assignment and it's documentation has to be tidy
-2. Use ERD plus for the database scheme diagrams ER / XDM
-3. XMLSchema
-4. DOM query & write document & 
-5. 
+A féléves feladat is ebben a repóban fog helyet kaptni
