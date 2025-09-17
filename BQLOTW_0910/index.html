@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>FRobert"s Webpage</title>
+        <meta content="text/html; charset="UTF-8">
+        <link rel="stylesheet" href="style_sheet.css">
+        <link rel="icon" href="kepek/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+
+        <table>
+
+            <tr style="height:250px">
+                <td></td>
+                <td class="menu-container" onmouseover="showMenu()" onmouseout="hideMenu()" colspan="3" style="width:1830px;">
+                    <a href="fooldal.html" target="keret"><img src="kepek/header.png" height="200" alt=""></a>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr class="menu-items" id="menuItems" onmouseover="showMenu()" onmouseout="hideMenu()" >
+                <td class="padding"></td>
+                <td class="menu-cell"><a href="diszkret.html" target="keret">Diszkrét matematika</a></td>
+                <td class="menu-cell"><a href="architektura.html" target="keret">Számítógép architektúrák</a></td>
+                <td class="menu-cell"><a href="progalapjai.html" target="keret">Programozás alapjai</a></td>
+                <td class="padding"></td>
+            </tr>
+
+            <tr style="height: 660px;">
+
+                <td colspan="3">
+                    <iframe name="keret" src="fooldal.html" width="80%" height="660px" frameborder="0" marginheight="10" marginwidth="20">
+                        A böngészője nem támogatja a belső keretek használatát
+                    </iframe>            
+                </td>
+
+            </tr>
+            <tr style="height: 40px;">
+                <td colspan="3">
+                    &copy; Készítette Ferencsik Róbert
+                </td>
+            </tr>
+        </table>
+
+        <script src="script.js"></script>
+    </body>
+</html>
