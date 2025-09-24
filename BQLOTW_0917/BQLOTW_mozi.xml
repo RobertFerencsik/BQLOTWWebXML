@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mozi>
+    <film id="txn_nxm_2jb" mufaj="horror">
+    <rendezo id="nzk_4xm_2jb" new="alex"/>
+    <szinesz id="u5g_s4xm_2jb" nev="Madison_Ivy"/>
+    <szinesz id="a">
+        <gyerekszinesz/>
+        <musicalszinesz/>
+        <szinkronszinesz/>
+
+    </szinesz>
+    <iro id="trv_4xm_2jb"/>
+    </film>
+    <film id="txn_nxm_3jb" mufaj="comedy">
+        <rendezo id="nzk_5xm_3jb" nev="Jamie Lee"/>
+        <szinesz id="u5g_s5xm_3jb" nev="Chris Pratt"/>
+        <szinesz id="b">
+            <gyerekszinesz/>
+            <musicalszinesz/>
+            <szinkronszinesz/>
+        </szinesz>
+        <iro id="trv_5xm_3jb"/>
+    </film>
+</mozi>
