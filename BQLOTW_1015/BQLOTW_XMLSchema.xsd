@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/vendeglatas"
+           xmlns:v="http://www.example.com/vendeglatas"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- Simple Types Collection and Custom Types -->
+    
+    <!-- ID Types -->
+    <xs:simpleType name="etteremKodType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="e[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="foszakacsKodType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="f[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="szakacsKodType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="sz[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="gyakornokKodType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="gy[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="vendegKodType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="v[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Name Types -->
+    <xs:simpleType name="nevType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+            <xs:maxLength value="50"/>
+            <xs:pattern value="[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+ [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- City Types -->
+    <xs:simpleType name="varosType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Budapest"/>
+            <xs:enumeration value="Miskolc"/>
+            <xs:enumeration value="Szeged"/>
+            <xs:enumeration value="Debrecen"/>
+            <xs:enumeration value="Pécs"/>
+            <xs:enumeration value="Győr"/>
+            <xs:enumeration value="Székesfehérvár"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Street Types -->
+    <xs:simpleType name="utcaType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="30"/>
+            <xs:pattern value="[A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű\s]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- House Number Types -->
+    <xs:simpleType name="hazszamType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Star Rating Types -->
+    <xs:simpleType name="csillagType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Age Types -->
+    <xs:simpleType name="eletkorType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="16"/>
+            <xs:maxInclusive value="80"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Education Types -->
+    <xs:simpleType name="vegzetsegType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Szakközépiskola"/>
+            <xs:enumeration value="Tapasztalat"/>
+            <xs:enumeration value="Gimnázium"/>
+            <xs:enumeration value="Szakiskola"/>
+            <xs:enumeration value="Főiskola"/>
+            <xs:enumeration value="Egyetem"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Qualification Types -->
+    <xs:simpleType name="vegzettsegType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="100"/>
+            <xs:pattern value="[A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű\s]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Department Types -->
+    <xs:simpleType name="reszlegType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Saucier"/>
+            <xs:enumeration value="Grill"/>
+            <xs:enumeration value="Pâtissier"/>
+            <xs:enumeration value="Garde Manger"/>
+            <xs:enumeration value="Entremetier"/>
+            <xs:enumeration value="Poissonnier"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Date Types -->
+    <xs:simpleType name="datumType">
+        <xs:restriction base="xs:date">
+            <xs:minInclusive value="2020-01-01"/>
+            <xs:maxInclusive value="2030-12-31"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Duration Types -->
+    <xs:simpleType name="idotartamType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+ hónap"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Shift Types -->
+    <xs:simpleType name="muszakType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="délelőtt"/>
+            <xs:enumeration value="délután"/>
+            <xs:enumeration value="este"/>
+            <xs:enumeration value="éjszaka"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Price Types -->
+    <xs:simpleType name="osszegType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="100000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Food Types -->
+    <xs:simpleType name="etelType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="100"/>
+            <xs:pattern value="[A-ZÁÉÍÓÖŐÚÜŰa-záéíóöőúüű\s,]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Complex Types -->
+    
+    <!-- Address Type -->
+    <xs:complexType name="cimType">
+        <xs:sequence>
+            <xs:element name="varos" type="v:varosType"/>
+            <xs:element name="utca" type="v:utcaType"/>
+            <xs:element name="hazszam" type="v:hazszamType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Practice Type -->
+    <xs:complexType name="gyakorlatType">
+        <xs:sequence>
+            <xs:element name="kezdete" type="v:datumType"/>
+            <xs:element name="idotartam" type="v:idotartamType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Restaurant Type -->
+    <xs:complexType name="etteremType">
+        <xs:sequence>
+            <xs:element name="nev" type="v:nevType"/>
+            <xs:element name="cim" type="v:cimType"/>
+            <xs:element name="csillag" type="v:csillagType"/>
+        </xs:sequence>
+        <xs:attribute name="ekod" type="v:etteremKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Head Chef Type -->
+    <xs:complexType name="foszakacsType">
+        <xs:sequence>
+            <xs:element name="nev" type="v:nevType"/>
+            <xs:element name="eletkor" type="v:eletkorType"/>
+            <xs:element name="vegzetseg" type="v:vegzetsegType"/>
+            <xs:element name="vegzettseg" type="v:vegzettsegType"/>
+        </xs:sequence>
+        <xs:attribute name="fkod" type="v:foszakacsKodType" use="required"/>
+        <xs:attribute name="e_f" type="v:etteremKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Chef Type -->
+    <xs:complexType name="szakacsType">
+        <xs:sequence>
+            <xs:element name="nev" type="v:nevType"/>
+            <xs:element name="reszleg" type="v:reszlegType"/>
+            <xs:element name="vegzetseg" type="v:vegzetsegType"/>
+            <xs:element name="vegzettseg" type="v:vegzettsegType"/>
+        </xs:sequence>
+        <xs:attribute name="skod" type="v:szakacsKodType" use="required"/>
+        <xs:attribute name="e_sz" type="v:etteremKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Intern Type -->
+    <xs:complexType name="gyakornokType">
+        <xs:sequence>
+            <xs:element name="nev" type="v:nevType"/>
+            <xs:element name="gyakorlat" type="v:gyakorlatType"/>
+            <xs:element name="muszak" type="v:muszakType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="gykod" type="v:gyakornokKodType" use="required"/>
+        <xs:attribute name="e_gy" type="v:etteremKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Customer Type -->
+    <xs:complexType name="vendegType">
+        <xs:sequence>
+            <xs:element name="nev" type="v:nevType"/>
+            <xs:element name="eletkor" type="v:eletkorType"/>
+            <xs:element name="cim" type="v:cimType"/>
+        </xs:sequence>
+        <xs:attribute name="vkod" type="v:vendegKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Order Type -->
+    <xs:complexType name="rendelesType">
+        <xs:sequence>
+            <xs:element name="osszeg" type="v:osszegType"/>
+            <xs:element name="etel" type="v:etelType"/>
+        </xs:sequence>
+        <xs:attribute name="e_v_e" type="v:etteremKodType" use="required"/>
+        <xs:attribute name="e_v_v" type="v:vendegKodType" use="required"/>
+    </xs:complexType>
+
+    <!-- Root Element Type -->
+    <xs:complexType name="vendeglatasType">
+        <xs:sequence>
+            <xs:element name="etterem" type="v:etteremType" maxOccurs="unbounded"/>
+            <xs:element name="foszakacs" type="v:foszakacsType" maxOccurs="unbounded"/>
+            <xs:element name="szakacs" type="v:szakacsType" maxOccurs="unbounded"/>
+            <xs:element name="gyakornok" type="v:gyakornokType" maxOccurs="unbounded"/>
+            <xs:element name="vendeg" type="v:vendegType" maxOccurs="unbounded"/>
+            <xs:element name="rendeles" type="v:rendelesType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root Element -->
+    <xs:element name="vendeglatas" type="v:vendeglatasType"/>
+
+</xs:schema>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/orarend"
+           xmlns:ora="http://www.example.com/orarend"
+           elementFormDefault="qualified">
+
+    <!-- Custom Types -->
+    <xs:simpleType name="oraIdType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="oraTipusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="előadás"/>
+            <xs:enumeration value="Előadás"/>
+            <xs:enumeration value="gyakorlat"/>
+            <xs:enumeration value="elmélet"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="napType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Hétfő"/>
+            <xs:enumeration value="Kedd"/>
+            <xs:enumeration value="Szerda"/>
+            <xs:enumeration value="Csütörtök"/>
+            <xs:enumeration value="Péntek"/>
+            <xs:enumeration value="Szombat"/>
+            <xs:enumeration value="Vasárnap"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idoType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}:\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="helyszinType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="oktatoType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="szakType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Programtervező informatikus Bsc"/>
+            <xs:enumeration value="Programtervező informatikus Bsc Bsc"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Complex Types -->
+    <xs:complexType name="idopontType">
+        <xs:sequence>
+            <xs:element name="nap" type="ora:napType"/>
+            <xs:element name="tol" type="ora:idoType"/>
+            <xs:element name="ig" type="ora:idoType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="oraType">
+        <xs:sequence>
+            <xs:element name="targy" type="xs:string"/>
+            <xs:element name="idopont" type="ora:idopontType"/>
+            <xs:element name="helyszin" type="ora:helyszinType"/>
+            <xs:element name="oktato" type="ora:oktatoType"/>
+            <xs:element name="szak" type="ora:szakType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="ora:oraIdType" use="required"/>
+        <xs:attribute name="típus" type="ora:oraTipusType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="orarendType">
+        <xs:sequence>
+            <xs:element name="ora" type="ora:oraType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root Element -->
+    <xs:element name="BQLOTW_orarend" type="ora:orarendType"/>
+
+</xs:schema>

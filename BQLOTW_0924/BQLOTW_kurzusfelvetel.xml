@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <BQLOTW_kurzusfelvetel tanev="2025" egyetem="Miskolci Egyetem">
-
+    <hallgato>
+        <hnev>Ferencsik Róbert</hnev>
+        <szulev>1999-06-21</szulev>
+        <szak evf="3">Programtervező informatikus</szak>
+    </hallgato>
+    <kurzus id="BQLOTW">
+        <kurzusnev></kurzusnev>
+        <kredit></kredit>
+        <hely></hely>
+        <idopont></idopont>
+        <oktato></oktato>
+    </kurzus>
 </BQLOTW_kurzusfelvetel>
