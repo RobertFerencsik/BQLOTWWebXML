@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BQLOTW_orarend>
+    <!-- Hétfő -->
+    <ora id="01" típus="előadás">
+        <targy>Webtechnológiák I.</targy>
+        <idopont>
+            <nap>Hétfő</nap>
+            <tol>10:00</tol>
+            <ig>11:30</ig>
+        </idopont>
+        <helyszin>A1 mf V ea.</helyszin>
+        <oktato>Dr. Agárdy Anita</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <!-- Kedd -->
+    <ora id="02" típus="előadás">
+        <targy>MI alapok</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>10:00</tol>
+            <ig>11:30</ig>
+        </idopont>
+        <helyszin>A1 32 ea.</helyszin>
+        <oktato>Farkas Levente</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <ora id="03" típus="gyakorlat">
+        <targy>MI alapok</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>12:00</tol>
+            <ig>13:30</ig>
+        </idopont>
+        <helyszin>32 ea.</helyszin>
+        <oktato>Farkas Levente</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <ora id="04" típus="Előadás">
+        <targy>Algoritmusok és vizsgálatuk</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>14:00</tol>
+            <ig>15:30</ig>
+        </idopont>
+        <helyszin>A1 305-6</helyszin>
+        <oktato>Dr. Házy Attila</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <ora id="05" típus="gyakorlat">
+        <targy>Algoritmusok és vizsgálatuk</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>16:00</tol>
+            <ig>17:30</ig>
+        </idopont>
+        <helyszin>A1 305-6</helyszin>
+        <oktato>Dr. Házy Attila</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <!-- Szerda -->
+    <ora id="06" típus="előadás">
+        <targy>Webes Adatkezelő környezetek</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>08:00</tol>
+            <ig>10:30</ig>
+        </idopont>
+        <helyszin>A1 310</helyszin>
+        <oktato>Dr. Kovács László</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <ora id="07" típus="gyakorlat">
+        <targy>Webes Adatkezelő környezetek</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>10:00</tol>
+            <ig>11:30</ig>
+        </idopont>
+        <helyszin>IN 103</helyszin>
+        <oktato>Dr. Bednarik László</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+    
+    <ora id="08" típus="gyakorlat">
+        <targy>Webtechnológiák I.</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>12:00</tol>
+            <ig>13:30</ig>
+        </idopont>
+        <helyszin>IN 103</helyszin>
+        <oktato>Dr. Bednarik László</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+
+    <ora id="09" típus="gyakorlat">
+        <targy>Vállalati Információs Rendszerek Fejlesztése</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>14:00</tol>
+            <ig>15:30</ig>
+        </idopont>
+        <helyszin>IN 103</helyszin>
+        <oktato>Dr. Sasvári Péter</oktato>
+        <szak>Programtervező informatikus Bsc</szak>
+    </ora>
+
+    <ora id="10" típus="elmélet">
+        <targy>Vállalati Információs Rendszerek Fejlesztése</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>16:00</tol>
+            <ig>17:30</ig>
+        </idopont>
+        <helyszin>IN 103</helyszin>
+        <oktato>Dr. Sasvári Péter</oktato>
+        <szak>Programtervező informatikus Bsc Bsc</szak>
+    </ora>
+</BQLOTW_orarend>

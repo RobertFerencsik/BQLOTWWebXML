@@ -1,0 +1,136 @@
+{
+	"BQLOTW_orarend": {
+		"ora": [
+			{
+				"targy": "Webtechnológiák I.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "10:00",
+					"ig": "11:30"
+				},
+				"helyszin": "A1 mf V ea.",
+				"oktato": "Dr. Agárdy Anita",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "01",
+				"_típus": "előadás"
+			},
+			{
+				"targy": "MI alapok",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "10:00",
+					"ig": "11:30"
+				},
+				"helyszin": "A1 32 ea.",
+				"oktato": "Farkas Levente",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "02",
+				"_típus": "előadás"
+			},
+			{
+				"targy": "MI alapok",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "12:00",
+					"ig": "13:30"
+				},
+				"helyszin": "32 ea.",
+				"oktato": "Farkas Levente",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "03",
+				"_típus": "gyakorlat"
+			},
+			{
+				"targy": "Algoritmusok és vizsgálatuk",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "14:00",
+					"ig": "15:30"
+				},
+				"helyszin": "A1 305-6",
+				"oktato": "Dr. Házy Attila",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "04",
+				"_típus": "Előadás"
+			},
+			{
+				"targy": "Algoritmusok és vizsgálatuk",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "16:00",
+					"ig": "17:30"
+				},
+				"helyszin": "A1 305-6",
+				"oktato": "Dr. Házy Attila",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "05",
+				"_típus": "gyakorlat"
+			},
+			{
+				"targy": "Webes Adatkezelő környezetek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "08:00",
+					"ig": "10:30"
+				},
+				"helyszin": "A1 310",
+				"oktato": "Dr. Kovács László",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "06",
+				"_típus": "előadás"
+			},
+			{
+				"targy": "Webes Adatkezelő környezetek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "10:00",
+					"ig": "11:30"
+				},
+				"helyszin": "IN 103",
+				"oktato": "Dr. Bednarik László",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "07",
+				"_típus": "gyakorlat"
+			},
+			{
+				"targy": "Webtechnológiák I.",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "12:00",
+					"ig": "13:30"
+				},
+				"helyszin": "IN 103",
+				"oktato": "Dr. Bednarik László",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "08",
+				"_típus": "gyakorlat"
+			},
+			{
+				"targy": "Vállalati Információs Rendszerek Fejlesztése",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "14:00",
+					"ig": "15:30"
+				},
+				"helyszin": "IN 103",
+				"oktato": "Dr. Sasvári Péter",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "09",
+				"_típus": "gyakorlat"
+			},
+			{
+				"targy": "Vállalati Információs Rendszerek Fejlesztése",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "16:00",
+					"ig": "17:30"
+				},
+				"helyszin": "IN 103",
+				"oktato": "Dr. Sasvári Péter",
+				"szak": "Programtervező informatikus Bsc",
+				"_id": "10",
+				"_típus": "elmélet"
+			}
+		]
+	}
+}
