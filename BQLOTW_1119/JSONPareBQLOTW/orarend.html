@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BQLOTW Órarend</title>
+    <style>
+        :root {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            color: #111;
+            background: #f5f7fb;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="file"] {
+            font-size: 0.95rem;
+        }
+
+        .status {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        thead {
+            background: #163d89;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border: 1px solid #e0e5ef;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #f9fbff;
+        }
+
+        .empty {
+            padding: 32px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Órarend megjelenítő</h1>
+    <div class="controls">
+        <label for="file-input">Válassz JSON fájlt:</label>
+        <input id="file-input" type="file" accept="application/json">
+        <p class="status" id="status">Alapértelmezett fájl betöltése…</p>
+    </div>
+
+    <div id="output" class="empty">Még nincs megjelenítendő órarend.</div>
+
+    <script>
+        const statusEl = document.getElementById("status");
+        const output = document.getElementById("output");
+        const fileInput = document.getElementById("file-input");
+
+        const columns = [
+            { key: "targy", label: "Tárgy" },
+            { key: "nap", label: "Nap" },
+            { key: "tol", label: "Tól" },
+            { key: "ig", label: "Ig" },
+            { key: "helyszin", label: "Helyszín" },
+            { key: "oktato", label: "Oktató" },
+            { key: "_típus", label: "Típus" },
+            { key: "_id", label: "Azonosító" }
+        ];
+
+        function normalizeLessons(data) {
+            if (!data) return [];
+            if (Array.isArray(data)) return data;
+            if (data.BQLOTW_orarend?.ora) return data.BQLOTW_orarend.ora;
+            if (data.ora) return data.ora;
+            return [];
+        }
+
+        function renderLessons(lessons) {
+            if (!lessons.length) {
+                output.className = "empty";
+                output.textContent = "Nem található megjeleníthető órarend.";
+                return;
+            }
+
+            const rows = lessons.map(lesson => {
+                const time = lesson.idopont || {};
+                return columns.map(column => {
+                    if (column.key === "nap") return time.nap || "";
+                    if (column.key === "tol") return time.tol || "";
+                    if (column.key === "ig") return time.ig || "";
+                    return lesson[column.key] ?? "";
+                });
+            });
+
+            const table = document.createElement("table");
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+
+            columns.forEach(col => {
+                const th = document.createElement("th");
+                th.textContent = col.label;
+                headerRow.appendChild(th);
+            });
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            rows.forEach(rowData => {
+                const tr = document.createElement("tr");
+                rowData.forEach(cell => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            output.className = "";
+            output.innerHTML = "";
+            output.appendChild(table);
+        }
+
+        async function loadDefaultSchedule() {
+            try {
+                const response = await fetch("BQLOTW_orarend.json");
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const data = await response.json();
+                statusEl.textContent = "Alapértelmezett időbeosztás betöltve.";
+                renderLessons(normalizeLessons(data));
+            } catch (error) {
+                statusEl.textContent = "Az alapértelmezett fájl nem tölthető be. Válassz egyet kézzel!";
+                output.className = "empty";
+                output.textContent = `Hiba: ${error.message}`;
+            }
+        }
+
+        fileInput.addEventListener("change", event => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+
+            statusEl.textContent = `Betöltés: ${file.name}`;
+            const reader = new FileReader();
+
+            reader.onload = e => {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    const lessons = normalizeLessons(json);
+                    if (!lessons.length) {
+                        throw new Error("A fájl nem tartalmaz felismerhető órarendet.");
+                    }
+                    renderLessons(lessons);
+                    statusEl.textContent = `${file.name} sikeresen betöltve.`;
+                } catch (err) {
+                    statusEl.textContent = `Hiba: ${err.message}`;
+                    output.className = "empty";
+                    output.textContent = "Ellenőrizd, hogy a JSON szerkezete helyes-e.";
+                }
+            };
+
+            reader.onerror = () => {
+                statusEl.textContent = "A fájl olvasása közben hiba történt.";
+            };
+
+            reader.readAsText(file);
+        });
+
+        loadDefaultSchedule();
+    </script>
+</body>
+</html>
+
