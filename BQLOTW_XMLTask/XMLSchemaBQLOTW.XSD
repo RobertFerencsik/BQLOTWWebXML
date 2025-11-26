@@ -1,6 +1,176 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="könyvesboltok">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="könyvesbolt" type="könyvesboltTípus" maxOccurs="1"/>
+                <xs:element name="leltár" type="leltárTípus" maxOccurs="1"/>
+                <xs:element name="könyv" type="könyvTípus" maxOccurs="unbounded"/>
+                <xs:element name="szerzője" type="szerzőjeTípus" maxOccurs="unbounded"/>
+                <xs:element name="író" type="íróTípus" maxOccurs="unbounded"/>
+                <xs:element name="tartalmaz" type="tartalmazTípus" maxOccurs="unbounded"/>
+                <xs:element name="eladás" type="eladásTípus" maxOccurs="unbounded"/>
+                <xs:element name="kiadó" type="kiadóTípus" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Elsődleges kulcsok -->
+
+        <xs:key name="könyvesboltKulcs">
+            <xs:selector xpath="könyvesbolt"/>   
+            <xs:field xpath="@üzletID"/>
+        </xs:key>
+        
+        <xs:key name="leltárKulcs">
+            <xs:selector xpath="leltár"/>   
+            <xs:field xpath="@leltárID"/>
+        </xs:key>
+
+        <xs:key name="könyvKulcs">
+            <xs:selector xpath="könyv"/>   
+            <xs:field xpath="@isbn"/>
+        </xs:key>
+
+        <xs:key name="íróKulcs">
+            <xs:selector xpath="író"/>   
+            <xs:field xpath="@íróID"/>  
+        </xs:key>
+
+        <xs:key name="eladásKulcs">
+            <xs:selector xpath="eladás"/>   
+            <xs:field xpath="@eladásID"/>
+        </xs:key>
+
+        <xs:key name="kiadóKulcs">
+            <xs:selector xpath="kiadó"/>   
+            <xs:field xpath="@adószám"/>
+        </xs:key>
+
+        <!-- Idegen kulcsok -->
+        <!-- 1:N kapcsolat-->
+        <xs:keyref refer="leltárKulcs" name="leltárkönyvIKulcs">
+            <xs:selector xpath="könyv"/>
+            <xs:field xpath="@leltárID"/>
+        </xs:keyref> 
+
+        <xs:keyref refer="kiadóKulcs" name="kiadókönyvIKulcs">
+            <xs:selector xpath="könyv"/>
+            <xs:field xpath="@adószám"/>
+        </xs:keyref>
+
+        <!-- M:N kapcsolat-->
+
+        <xs:keyref refer="könyvKulcs" name="szerzőjekönyvIKulcs">
+            <xs:selector xpath="szerzője"/>
+            <xs:field xpath="@isbn"/>
+        </xs:keyref>
+
+        <xs:keyref refer="íróKulcs" name="szerzőjeíróIKulcs">
+            <xs:selector xpath="szerzője"/>
+            <xs:field xpath="@íróID"/>
+        </xs:keyref>
+
+        <xs:keyref refer="könyvKulcs" name="tartalmazkönyvIKulcs">
+            <xs:selector xpath="tartalmaz"/>
+            <xs:field xpath="@isbn"/>
+        </xs:keyref>
+
+        <xs:keyref refer="eladásKulcs" name="tartalmazeladásIKulcs">
+            <xs:selector xpath="tartalmaz"/>
+            <xs:field xpath="@eladásID"/>
+        </xs:keyref> 
+
+        <!-- 1-1 kapcsolat -->
+        <xs:unique name="könyvesboltLeltárI1Kulcs">
+            <xs:selector xpath="leltár"/>
+            <xs:field xpath="@üzletID"/>
+        </xs:unique> 
 
 
+    </xs:element>
 
+    
+    
+    
+        <xs:complexType name="könyvesboltTípus">
+            <xs:sequence>
+                <xs:element name="cím">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="irányítószám" type="xs:string"/>
+                            <xs:element name="város" type="xs:string"/>
+                            <xs:element name="utca" type="xs:string"/>
+                            <xs:element name="házszám" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="telefon" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="üzletID" type="xs:integer" use="required"/>
+        </xs:complexType>
+ 
+        <xs:complexType name="leltárTípus">
+            <xs:sequence>
+                <xs:element name="időbélyeg" type="xs:dateTime"/>
+                <xs:element name="összérték" type="xs:decimal"/>
+            </xs:sequence>
+            <xs:attribute name="leltárID" type="xs:integer" use="required"/>
+            <xs:attribute name="üzletID" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="könyvTípus">
+            <xs:sequence>
+                <xs:element name="cím" type="xs:string"/>
+                <xs:element name="műfaj" type="xs:string" maxOccurs="10"/>
+                <xs:element name="ár" type="xs:decimal"/>
+                <xs:element name="készlet" type="xs:integer"/>
+            </xs:sequence>
+            <xs:attribute name="isbn" type="xs:string" use="required"/>
+            <xs:attribute name="leltárID" type="xs:integer" use="required"/>
+            <xs:attribute name="adószám" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="szerzőjeTípus">
+            <xs:attribute name="isbn" type="xs:string" use="required"/>
+            <xs:attribute name="íróID" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="íróTípus">
+            <xs:sequence>
+                <xs:element name="név">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="vezetéknév" type="xs:string"/>
+                            <xs:element name="keresztnév" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="születésiDátum" type="xs:date"/>
+                <xs:element name="nemzetiség" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="íróID" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="tartalmazTípus">
+            <xs:attribute name="isbn" type="xs:string" use="required"/>
+            <xs:attribute name="eladásID" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="eladásTípus">
+            <xs:sequence>
+                <xs:element name="dátum" type="xs:dateTime"/>
+                <xs:element name="érték" type="xs:integer"/>
+                <xs:element name="kedvezmény" type="xs:decimal"/>
+            </xs:sequence>
+            <xs:attribute name="eladásID" type="xs:integer" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="kiadóTípus">
+            <xs:sequence>
+                <xs:element name="név" type="xs:string" />
+                <xs:element name="alapítás" type="xs:date" />
+                <xs:element name="székhely" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="adószám" type="xs:integer" use="required"/>
+        </xs:complexType>
 </xs:schema>
