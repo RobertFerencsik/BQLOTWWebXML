@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="BQLOTWhallgato.xslt"?>
+<hallgatok>
+    <hallgato id="01">
+        <keresztnev>Róbert</keresztnev>
+        <vezeteknev>Ferencsik</vezeteknev>
+        <becenev>Rob</becenev>
+        <kor>26</kor>
+        <osztondij>21000</osztondij>
+    </hallgato>
+    <hallgato id="02">
+        <keresztnev>Piroska</keresztnev>
+        <vezeteknev>Vigh</vezeteknev>
+        <becenev>Piros</becenev>
+        <kor>19</kor>
+        <osztondij>11000</osztondij>
+    </hallgato>
+    <hallgato id="03">
+        <keresztnev>Ferenc</keresztnev>
+        <vezeteknev>Nagy</vezeteknev>
+        <becenev>Feri</becenev>
+        <kor>24</kor>
+        <osztondij>2000</osztondij>
+    </hallgato>
+</hallgatok>

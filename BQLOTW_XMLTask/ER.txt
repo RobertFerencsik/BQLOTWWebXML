@@ -1,0 +1,29 @@
+Entity: Könyvesbolt
+  PK: BoltID
+  Attr: Telefonszám (multivalue), cím (composite): Irányítószám, Város, Utca, Házszám
+
+Entity: Leltár
+  PK: LeltárID
+  Attr: Időbélyeg, Összérték (derivate)
+
+  Entity: Könyv
+  PK: ISBN
+  Attr: Cím, Megjelenés, Oldalszám, Ár, Műfaj
+
+Entity: Író
+  PK: ÍróID
+  Attr: Nemzetiség, Név (composite): Vezetéknév, Keresztnév
+
+Entity: Kiadó
+  PK: Adószám
+  Attr: Név, Székhely, Alapításéve
+  
+Entity: Eladás
+  PK: EladásID
+  Attr: Dátum, Érték, Kedvezmény
+
+Relationship: Kiadja (Könyv  N — 1 Kiadó)
+Relationship: Szerzője (Könyv N — M Író) Attr: Szerzőijogrész
+Relationship: Tartalmaz (Könyv N — M Eladás)
+Relationship: Nyilvántart (Könyv N - 1 Leltár)
+Relationship: Tükröz (Leltár 1 - 1 Könyvesbolt)
