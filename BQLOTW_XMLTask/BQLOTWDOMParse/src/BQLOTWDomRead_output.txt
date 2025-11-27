@@ -1,0 +1,77 @@
+Root element: könyvesboltok
+========================================
+
+Bookstore (ID: 1)
+  Address: 1011 Budapest, Fő utca 15
+  Phone: 06-1-201-3456
+  Phone: 06-1-201-3457
+
+----------------------------------------
+
+Inventory (Books and Authors)
+
+  Book: A Gyűrűk Ura (ISBN: 978-3-16-148410-0)
+    Author: John Ronald Reuel Tolkien
+    Genre: Fantasy
+    Genre: Kaland
+    Price: 4999.99
+    Stock: 5
+
+  Book: 1984 (ISBN: 978-0-14-028329-7)
+    Author: George Orwell
+    Genre: Sci-Fi
+    Genre: Disztópia
+    Price: 3499.00
+    Stock: 8
+
+  Book: Egri csillagok (ISBN: 978-963-07-8656-4)
+    Author: Géza Gárdonyi
+    Genre: Történelmi regény
+    Genre: Ifjúsági
+    Price: 3990.00
+    Stock: 12
+
+  Book: Harry Potter és a bölcsek köve (ISBN: 978-963-324-504-8)
+    Author: Joanne Kathleen Rowling
+    Genre: Fantasy
+    Genre: Ifjúsági
+    Price: 4290.00
+    Stock: 20
+
+  Book: A Pál utcai fiúk (ISBN: 978-963-07-9516-0)
+    Author: Ferenc Molnár
+    Genre: Ifjúsági
+    Genre: Dráma
+    Price: 2990.00
+    Stock: 15
+
+----------------------------------------
+
+Sales Records
+
+  Sale (ID: 1)
+    Date: 2025-11-26T14:15:00
+    Value: 8498
+    Discount: 0.10
+    Items:
+      - A Gyűrűk Ura
+      - 1984
+
+  Sale (ID: 2)
+    Date: 2025-11-26T16:20:00
+    Value: 8280
+    Discount: 0.00
+    Items:
+      - Egri csillagok
+      - Harry Potter és a bölcsek köve
+
+  Sale (ID: 3)
+    Date: 2025-11-27T09:05:00
+    Value: 2691
+    Discount: 0.10
+    Items:
+      - A Pál utcai fiúk
+
+----------------------------------------
+
+--- Saved to file: BQLOTWDomRead_output.txt ---

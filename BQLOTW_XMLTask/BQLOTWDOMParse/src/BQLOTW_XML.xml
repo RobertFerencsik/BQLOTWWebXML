@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<könyvesboltok xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLSchemaBqLOTW.xsd">
+    <!-- Könyvesbolt adatai -->
+    <könyvesbolt üzletID="1">
+        <cím>
+            <irányítószám>1011</irányítószám>
+            <város>Budapest</város>
+            <utca>Fő utca</utca>
+            <házszám>15</házszám>
+        </cím>
+        <telefon>06-1-201-3456</telefon>
+        <telefon>06-1-201-3457</telefon>
+    </könyvesbolt>
+
+    <!-- Leltár -->
+    <leltár leltárID="1" üzletID="1">
+        <időbélyeg>2025-11-26T10:30:00</időbélyeg>
+        <összérték>250000.00</összérték>
+    </leltár>
+
+    <!-- KÖNYVEK -->
+    <könyv isbn="978-3-16-148410-0" leltárID="1" adószám="12345678">
+        <cím>A Gyűrűk Ura</cím>
+        <műfaj>Fantasy</műfaj>
+        <műfaj>Kaland</műfaj>
+        <ár>4999.99</ár>
+        <készlet>5</készlet>
+    </könyv>
+
+    <könyv isbn="978-0-14-028329-7" leltárID="1" adószám="87654321">
+        <cím>1984</cím>
+        <műfaj>Sci-Fi</műfaj>
+        <műfaj>Disztópia</műfaj>
+        <ár>3499.00</ár>
+        <készlet>8</készlet>
+    </könyv>
+
+    <könyv isbn="978-963-07-8656-4" leltárID="1" adószám="13579246">
+        <cím>Egri csillagok</cím>
+        <műfaj>Történelmi regény</műfaj>
+        <műfaj>Ifjúsági</műfaj>
+        <ár>3990.00</ár>
+        <készlet>12</készlet>
+    </könyv>
+
+    <könyv isbn="978-963-324-504-8" leltárID="1" adószám="24681357">
+        <cím>Harry Potter és a bölcsek köve</cím>
+        <műfaj>Fantasy</műfaj>
+        <műfaj>Ifjúsági</műfaj>
+        <ár>4290.00</ár>
+        <készlet>20</készlet>
+    </könyv>
+
+    <könyv isbn="978-963-07-9516-0" leltárID="1" adószám="13579246">
+        <cím>A Pál utcai fiúk</cím>
+        <műfaj>Ifjúsági</műfaj>
+        <műfaj>Dráma</műfaj>
+        <ár>2990.00</ár>
+        <készlet>15</készlet>
+    </könyv>
+
+    <!-- Szerzője kapcsolatok -->
+    <szerzője isbn="978-3-16-148410-0" íróID="1"/>
+    <szerzője isbn="978-0-14-028329-7" íróID="2"/>
+    <szerzője isbn="978-963-07-8656-4" íróID="3"/> <!-- Gárdonyi -> Egri csillagok -->
+    <szerzője isbn="978-963-324-504-8" íróID="4"/> <!-- Rowling -> Harry Potter -->
+    <szerzője isbn="978-963-07-9516-0" íróID="5"/> <!-- Molnár -> Pál utcai fiúk -->
+
+    <!-- ÍRÓK -->
+    <író íróID="1">
+        <név>
+            <vezetéknév>Tolkien</vezetéknév>
+            <keresztnév>John Ronald Reuel</keresztnév>
+        </név>
+        <születésiDátum>1892-01-03</születésiDátum>
+        <nemzetiség>Angol</nemzetiség>
+    </író>
+
+    <író íróID="2">
+        <név>
+            <vezetéknév>Orwell</vezetéknév>
+            <keresztnév>George</keresztnév>
+        </név>
+        <születésiDátum>1903-06-25</születésiDátum>
+        <nemzetiség>Angol</nemzetiség>
+    </író>
+
+    <író íróID="3">
+        <név>
+            <vezetéknév>Gárdonyi</vezetéknév>
+            <keresztnév>Géza</keresztnév>
+        </név>
+        <születésiDátum>1863-08-03</születésiDátum>
+        <nemzetiség>Magyar</nemzetiség>
+    </író>
+
+    <író íróID="4">
+        <név>
+            <vezetéknév>Rowling</vezetéknév>
+            <keresztnév>Joanne Kathleen</keresztnév>
+        </név>
+        <születésiDátum>1965-07-31</születésiDátum>
+        <nemzetiség>Angol</nemzetiség>
+    </író>
+
+    <író íróID="5">
+        <név>
+            <vezetéknév>Molnár</vezetéknév>
+            <keresztnév>Ferenc</keresztnév>
+        </név>
+        <születésiDátum>1878-01-12</születésiDátum>
+        <nemzetiség>Magyar</nemzetiség>
+    </író>
+
+    <!-- Tartalmaz kapcsolatok -->
+    <tartalmaz isbn="978-3-16-148410-0" eladásID="1"/>
+    <tartalmaz isbn="978-0-14-028329-7" eladásID="1"/>
+    <tartalmaz isbn="978-963-07-8656-4" eladásID="2"/> <!-- Vettek egy Egri csillagokat -->
+    <tartalmaz isbn="978-963-324-504-8" eladásID="2"/> <!-- És egy Harry Pottert -->
+    <tartalmaz isbn="978-963-07-9516-0" eladásID="3"/>
+
+    <!-- ELADÁSOK -->
+    <eladás eladásID="1">
+        <dátum>2025-11-26T14:15:00</dátum>
+        <érték>8498</érték>
+        <kedvezmény>0.10</kedvezmény>
+    </eladás>
+
+    <eladás eladásID="2">
+        <dátum>2025-11-26T16:20:00</dátum>
+        <érték>8280</érték> <!-- Egri (3990) + HP (4290) -->
+        <kedvezmény>0.00</kedvezmény>
+    </eladás>
+
+    <eladás eladásID="3">
+        <dátum>2025-11-27T09:05:00</dátum>
+        <érték>2691</érték> <!-- Pál utcai fiúk (2990) - 10% kedvezmény -->
+        <kedvezmény>0.10</kedvezmény>
+    </eladás>
+
+    <!-- KIADÓK -->
+    <kiadó adószám="12345678">
+        <név>Tolkien Publisher</név>
+        <alapítás>1920-01-01</alapítás>
+        <székhely>Oxford, UK</székhely>
+    </kiadó>
+
+    <kiadó adószám="87654321">
+        <név>Penguin Books</név>
+        <alapítás>1935-07-30</alapítás>
+        <székhely>London, UK</székhely>
+    </kiadó>
+
+    <kiadó adószám="13579246">
+        <név>Magvető Kiadó</név>
+        <alapítás>1955-01-01</alapítás>
+        <székhely>Budapest, HU</székhely>
+    </kiadó>
+
+    <kiadó adószám="24681357">
+        <név>Animus Kiadó</név>
+        <alapítás>1991-05-15</alapítás>
+        <székhely>Budapest, HU</székhely>
+    </kiadó>
+
+</könyvesboltok>
