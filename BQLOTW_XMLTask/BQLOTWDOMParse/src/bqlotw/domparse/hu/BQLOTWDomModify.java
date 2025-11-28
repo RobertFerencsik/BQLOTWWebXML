@@ -28,7 +28,7 @@ public class BQLOTWDomModify {
             doc.getDocumentElement().normalize();
 
             // 1. Add a new book
-            System.out.println("1. Adding a new book...");
+            System.out.println("1. Új könyv hozzáadása...");
             Element root = doc.getDocumentElement();
             
             Element newKonyv = doc.createElement("könyv");
@@ -37,11 +37,11 @@ public class BQLOTWDomModify {
             newKonyv.setAttribute("adoszam", "12345678");
 
             Element cim = doc.createElement("cím");
-            cim.appendChild(doc.createTextNode("The Art of XML Parsing"));
+            cim.appendChild(doc.createTextNode("Az XML-feldolgozás művészete"));
             newKonyv.appendChild(cim);
 
             Element mufaj = doc.createElement("műfaj");
-            mufaj.appendChild(doc.createTextNode("Technical"));
+            mufaj.appendChild(doc.createTextNode("Műszaki"));
             newKonyv.appendChild(mufaj);
 
             Element ar = doc.createElement("ár");
@@ -53,10 +53,10 @@ public class BQLOTWDomModify {
             newKonyv.appendChild(keszlet);
 
             root.appendChild(newKonyv);
-            System.out.println("   New book added.");
+            System.out.println("   Új könyv hozzáadva.");
 
             // 2. Modify the price of '1984'
-            System.out.println("\n2. Modifying price for book '1984'...");
+            System.out.println("\n2. Az '1984' című könyv árának módosítása...");
             NodeList konyvek = doc.getElementsByTagName("könyv");
             for (int i = 0; i < konyvek.getLength(); i++) {
                 Node konyvNode = konyvek.item(i);
@@ -66,7 +66,7 @@ public class BQLOTWDomModify {
                         NodeList arNodeList = konyvElement.getElementsByTagName("ár");
                         if (arNodeList.getLength() > 0) {
                             arNodeList.item(0).setTextContent("3999.00");
-                            System.out.println("   Price updated for '1984'.");
+                            System.out.println("   Az '1984' ára frissítve.");
                         }
                         break; 
                     }
@@ -74,7 +74,7 @@ public class BQLOTWDomModify {
             }
 
             // 3. Add a new author
-            System.out.println("\n3. Adding a new author...");
+            System.out.println("\n3. Új szerző hozzáadása...");
             Element newIro = doc.createElement("író");
             newIro.setAttribute("íróID", "6");
 
@@ -92,11 +92,11 @@ public class BQLOTWDomModify {
             newIro.appendChild(szuletesiDatum);
 
             Element nemzetiseg = doc.createElement("nemzetiség");
-            nemzetiseg.setTextContent("American");
+            nemzetiseg.setTextContent("Amerikai");
             newIro.appendChild(nemzetiseg);
             
             root.appendChild(newIro);
-            System.out.println("   New author 'Frank Herbert' added.");
+            System.out.println("   Új szerző, 'Frank Herbert' hozzáadva.");
 
             // Write the content into a new xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -105,7 +105,7 @@ public class BQLOTWDomModify {
             StreamResult result = new StreamResult(new File("BQLOTW_XML_modified.xml"));
             transformer.transform(source, result);
 
-            System.out.println("\nXML file updated successfully! Saved as BQLOTW_XML_modified.xml");
+            System.out.println("\nAz XML fájl sikeresen frissítve! Mentve BQLOTW_XML_modified.xml néven.");
 
         } catch (Exception e) {
             e.printStackTrace();

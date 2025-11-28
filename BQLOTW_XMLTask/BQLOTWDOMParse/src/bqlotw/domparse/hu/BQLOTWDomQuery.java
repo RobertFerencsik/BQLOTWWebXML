@@ -29,10 +29,10 @@ public class BQLOTWDomQuery {
 
             XPath xpath = XPathFactory.newInstance().newXPath();
             
-            printHeader("Querying Bookstore XML");
+            printHeader("Könyvesbolt XML lekérdezése");
 
             // Query 1: Get all book titles published by 'Magvető Kiadó'
-            startBlock("1. Books published by 'Magvető Kiadó'");
+            startBlock("1. A 'Magvető Kiadó' által kiadott könyvek");
             String query1 = "//könyv[@adószám = //kiadó[név='Magvető Kiadó']/@adószám]/cím";
             NodeList bookTitles = (NodeList) xpath.compile(query1).evaluate(doc, XPathConstants.NODESET);
             for (int i = 0; i < bookTitles.getLength(); i++) {
@@ -41,7 +41,7 @@ public class BQLOTWDomQuery {
             endBlock();
 
             // Query 2: Get authors of books in the 'Fantasy' genre
-            startBlock("2. Authors of 'Fantasy' books");
+            startBlock("2. 'Fantasy' műfajú könyvek szerzői");
             String query2 = "//író[@íróID = //szerzője[@isbn = //könyv[műfaj='Fantasy']/@isbn]/@íróID]/név";
             NodeList authorNames = (NodeList) xpath.compile(query2).evaluate(doc, XPathConstants.NODESET);
              for (int i = 0; i < authorNames.getLength(); i++) {
@@ -51,22 +51,22 @@ public class BQLOTWDomQuery {
             endBlock();
 
             // Query 3: List books with stock less than 10
-            startBlock("3. Books with stock < 10");
+            startBlock("3. Könyvek, amelyek készlete < 10");
             String query3 = "//könyv[készlet < 10]";
             NodeList lowStockBooks = (NodeList) xpath.compile(query3).evaluate(doc, XPathConstants.NODESET);
             for (int i = 0; i < lowStockBooks.getLength(); i++) {
                 Element bookElement = (Element) lowStockBooks.item(i);
-                System.out.println("- " + getText(bookElement, "cím") + " (Stock: " + getText(bookElement, "készlet") + ")");
+                System.out.println("- " + getText(bookElement, "cím") + " (Készlet: " + getText(bookElement, "készlet") + ")");
             }
             endBlock();
 
             // Query 4: Get sales with a total value > 5000
-            startBlock("4. Sales with value > 5000");
+            startBlock("4. Eladások, amelyek értéke > 5000");
             String query4 = "//eladás[érték > 5000]";
             NodeList highValueSales = (NodeList) xpath.compile(query4).evaluate(doc, XPathConstants.NODESET);
             for (int i = 0; i < highValueSales.getLength(); i++) {
                 Element saleElement = (Element) highValueSales.item(i);
-                System.out.println("- Sale ID: " + saleElement.getAttribute("eladásID") + ", Value: " + getText(saleElement, "érték"));
+                System.out.println("- Eladás ID: " + saleElement.getAttribute("eladásID") + ", Érték: " + getText(saleElement, "érték"));
             }
             endBlock();
 

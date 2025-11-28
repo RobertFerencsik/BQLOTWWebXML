@@ -33,7 +33,7 @@ public class BQLOTWDomRead {
         try (PrintWriter pw = new PrintWriter(new FileWriter(outFile, false))) {
 
             String root = doc.getDocumentElement().getNodeName();
-            printlnBoth(pw, "Root element: " + root);
+            printlnBoth(pw, "Gyökér elem: " + root);
             printlnBoth(pw, "========================================");
 
             // Pre-process data to build maps for relationships
@@ -65,33 +65,33 @@ public class BQLOTWDomRead {
             NodeList konyvesboltok = doc.getElementsByTagName("könyvesbolt");
             for (int i = 0; i < konyvesboltok.getLength(); i++) {
                 Element e = (Element) konyvesboltok.item(i);
-                printlnBoth(pw, "\nBookstore (ID: " + e.getAttribute("üzletID") + ")");
-                printlnBoth(pw, "  Address: " + getText(e, "irányítószám") + " " + getText(e, "város") + ", " + getText(e, "utca") + " " + getText(e, "házszám"));
-                printMultiTag(pw, e, "telefon", "  Phone: ");
+                printlnBoth(pw, "\nKönyvesbolt (ID: " + e.getAttribute("üzletID") + ")");
+                printlnBoth(pw, "  Cím: " + getText(e, "irányítószám") + " " + getText(e, "város") + ", " + getText(e, "utca") + " " + getText(e, "házszám"));
+                printMultiTag(pw, e, "telefon", "  Telefon: ");
             }
             printlnBoth(pw, "\n----------------------------------------");
 
 
             // ====== Könyvek (Books) with Authors ======
-            printlnBoth(pw, "\nInventory (Books and Authors)");
+            printlnBoth(pw, "\nKészlet (Könyvek és Szerzők)");
             NodeList konyvek = doc.getElementsByTagName("könyv");
             for (int i = 0; i < konyvek.getLength(); i++) {
                 Element e = (Element) konyvek.item(i);
                 String isbn = e.getAttribute("isbn");
                 String authorId = authorIdsByIsbn.get(isbn);
-                String authorName = authorNames.getOrDefault(authorId, "Unknown Author");
+                String authorName = authorNames.getOrDefault(authorId, "Ismeretlen szerző");
 
-                printlnBoth(pw, "\n  Book: " + getText(e, "cím") + " (ISBN: " + isbn + ")");
-                printlnBoth(pw, "    Author: " + authorName);
-                printMultiTag(pw, e, "műfaj", "    Genre: ");
-                printlnBoth(pw, "    Price: " + getText(e, "ár"));
-                printlnBoth(pw, "    Stock: " + getText(e, "készlet"));
+                printlnBoth(pw, "\n  Könyv: " + getText(e, "cím") + " (ISBN: " + isbn + ")");
+                printlnBoth(pw, "    Szerző: " + authorName);
+                printMultiTag(pw, e, "műfaj", "    Műfaj: ");
+                printlnBoth(pw, "    Ár: " + getText(e, "ár"));
+                printlnBoth(pw, "    Készlet: " + getText(e, "készlet"));
             }
             printlnBoth(pw, "\n----------------------------------------");
 
 
             // ====== Eladások (Sales) with Books ======
-            printlnBoth(pw, "\nSales Records");
+            printlnBoth(pw, "\nEladási adatok");
             NodeList eladasok = doc.getElementsByTagName("eladás");
             Map<String, List<String>> booksInSale = new HashMap<>();
             NodeList tartalmaz = doc.getElementsByTagName("tartalmaz");
@@ -105,14 +105,14 @@ public class BQLOTWDomRead {
             for (int i = 0; i < eladasok.getLength(); i++) {
                 Element e = (Element) eladasok.item(i);
                 String saleId = e.getAttribute("eladásID");
-                printlnBoth(pw, "\n  Sale (ID: " + saleId + ")");
-                printlnBoth(pw, "    Date: " + getText(e, "dátum"));
-                printlnBoth(pw, "    Value: " + getText(e, "érték"));
-                printlnBoth(pw, "    Discount: " + getText(e, "kedvezmény"));
+                printlnBoth(pw, "\n  Eladás (ID: " + saleId + ")");
+                printlnBoth(pw, "    Dátum: " + getText(e, "dátum"));
+                printlnBoth(pw, "    Érték: " + getText(e, "érték"));
+                printlnBoth(pw, "    Kedvezmény: " + getText(e, "kedvezmény"));
                 
                 List<String> soldBooks = booksInSale.get(saleId);
                 if(soldBooks != null && !soldBooks.isEmpty()){
-                    printlnBoth(pw, "    Items:");
+                    printlnBoth(pw, "    Tételek:");
                     for(String title : soldBooks){
                         printlnBoth(pw, "      - " + title);
                     }
@@ -121,7 +121,7 @@ public class BQLOTWDomRead {
             printlnBoth(pw, "\n----------------------------------------");
 
 
-            printlnBoth(pw, "\n--- Saved to file: " + outFile.getName() + " ---");
+            printlnBoth(pw, "\n--- Mentve a fájlba: " + outFile.getName() + " ---");
         }
     }
 

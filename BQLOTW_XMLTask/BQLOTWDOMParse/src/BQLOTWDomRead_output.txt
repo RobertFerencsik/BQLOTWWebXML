@@ -1,77 +1,77 @@
-Root element: könyvesboltok
+Gyökér elem: könyvesboltok
 ========================================
 
-Bookstore (ID: 1)
-  Address: 1011 Budapest, Fő utca 15
-  Phone: 06-1-201-3456
-  Phone: 06-1-201-3457
+Könyvesbolt (ID: 1)
+  Cím: 1011 Budapest, Fő utca 15
+  Telefon: 06-1-201-3456
+  Telefon: 06-1-201-3457
 
 ----------------------------------------
 
-Inventory (Books and Authors)
+Készlet (Könyvek és Szerzők)
 
-  Book: A Gyűrűk Ura (ISBN: 978-3-16-148410-0)
-    Author: John Ronald Reuel Tolkien
-    Genre: Fantasy
-    Genre: Kaland
-    Price: 4999.99
-    Stock: 5
+  Könyv: A Gyűrűk Ura (ISBN: 978-3-16-148410-0)
+    Szerző: John Ronald Reuel Tolkien
+    Műfaj: Fantasy
+    Műfaj: Kaland
+    Ár: 4999.99
+    Készlet: 5
 
-  Book: 1984 (ISBN: 978-0-14-028329-7)
-    Author: George Orwell
-    Genre: Sci-Fi
-    Genre: Disztópia
-    Price: 3499.00
-    Stock: 8
+  Könyv: 1984 (ISBN: 978-0-14-028329-7)
+    Szerző: George Orwell
+    Műfaj: Sci-Fi
+    Műfaj: Disztópia
+    Ár: 3499.00
+    Készlet: 8
 
-  Book: Egri csillagok (ISBN: 978-963-07-8656-4)
-    Author: Géza Gárdonyi
-    Genre: Történelmi regény
-    Genre: Ifjúsági
-    Price: 3990.00
-    Stock: 12
+  Könyv: Egri csillagok (ISBN: 978-963-07-8656-4)
+    Szerző: Géza Gárdonyi
+    Műfaj: Történelmi regény
+    Műfaj: Ifjúsági
+    Ár: 3990.00
+    Készlet: 12
 
-  Book: Harry Potter és a bölcsek köve (ISBN: 978-963-324-504-8)
-    Author: Joanne Kathleen Rowling
-    Genre: Fantasy
-    Genre: Ifjúsági
-    Price: 4290.00
-    Stock: 20
+  Könyv: Harry Potter és a bölcsek köve (ISBN: 978-963-324-504-8)
+    Szerző: Joanne Kathleen Rowling
+    Műfaj: Fantasy
+    Műfaj: Ifjúsági
+    Ár: 4290.00
+    Készlet: 20
 
-  Book: A Pál utcai fiúk (ISBN: 978-963-07-9516-0)
-    Author: Ferenc Molnár
-    Genre: Ifjúsági
-    Genre: Dráma
-    Price: 2990.00
-    Stock: 15
+  Könyv: A Pál utcai fiúk (ISBN: 978-963-07-9516-0)
+    Szerző: Ferenc Molnár
+    Műfaj: Ifjúsági
+    Műfaj: Dráma
+    Ár: 2990.00
+    Készlet: 15
 
 ----------------------------------------
 
-Sales Records
+Eladási adatok
 
-  Sale (ID: 1)
-    Date: 2025-11-26T14:15:00
-    Value: 8498
-    Discount: 0.10
-    Items:
+  Eladás (ID: 1)
+    Dátum: 2025-11-26T14:15:00
+    Érték: 8498
+    Kedvezmény: 0.10
+    Tételek:
       - A Gyűrűk Ura
       - 1984
 
-  Sale (ID: 2)
-    Date: 2025-11-26T16:20:00
-    Value: 8280
-    Discount: 0.00
-    Items:
+  Eladás (ID: 2)
+    Dátum: 2025-11-26T16:20:00
+    Érték: 8280
+    Kedvezmény: 0.00
+    Tételek:
       - Egri csillagok
       - Harry Potter és a bölcsek köve
 
-  Sale (ID: 3)
-    Date: 2025-11-27T09:05:00
-    Value: 2691
-    Discount: 0.10
-    Items:
+  Eladás (ID: 3)
+    Dátum: 2025-11-27T09:05:00
+    Érték: 2691
+    Kedvezmény: 0.10
+    Tételek:
       - A Pál utcai fiúk
 
 ----------------------------------------
 
---- Saved to file: BQLOTWDomRead_output.txt ---
+--- Mentve a fájlba: BQLOTWDomRead_output.txt ---
