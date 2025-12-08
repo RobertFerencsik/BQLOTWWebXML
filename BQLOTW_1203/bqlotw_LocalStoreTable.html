@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>NEPTUNKÓD Órarend JSON - Táblázat</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+</style>
+</head>
+<body>
+<h2>NEPTUNKÓD Órarend JSON</h2>
+
+<input type="file" id="fileInput">
+<button onclick="loadFromLocalStorage()">LocalStorage betöltése</button>
+
+<table id="orarendTable">
+    <thead>
+        <tr>
+            <th>Tárgy</th>
+            <th>Nap</th>
+            <th>Tól</th>
+            <th>Ig</th>
+            <th>Helyszín</th>
+            <th>Oktató</th>
+            <th>Szak</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+let orarend = [];
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            orarend = JSON.parse(e.target.result);
+            localStorage.setItem('orarend', JSON.stringify(orarend));
+            renderTable();
+        }
+        reader.readAsText(file);
+    }
+});
+
+function loadFromLocalStorage() {
+    const data = localStorage.getItem('orarend');
+    if (data) {
+        orarend = JSON.parse(data);
+        renderTable();
+    }
+}
+
+function renderTable() {
+    const tbody = document.querySelector('#orarendTable tbody');
+    tbody.innerHTML = '';
+    orarend.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.Targy}</td>
+            <td>${item.Nap}</td>
+            <td>${item.Tol}</td>
+            <td>${item.Ig}</td>
+            <td>${item.Helyszin}</td>
+            <td>${item.Oktato}</td>
+            <td>${item.Szak}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+</script>
+</body>
+</html>

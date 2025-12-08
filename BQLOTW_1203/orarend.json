@@ -1,0 +1,92 @@
+[
+  {
+    "Targy": "Webtechnológiák I.",
+    "Nap": "Hétfő",
+    "Tol": "10:00",
+    "Ig": "11:30",
+    "Helyszin": "A1 mf V ea.",
+    "Oktato": "Dr. Agárdy Anita",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "MI alapok",
+    "Nap": "Kedd",
+    "Tol": "10:00",
+    "Ig": "11:30",
+    "Helyszin": "A1 32 ea.",
+    "Oktato": "Farkas Levente",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "MI alapok",
+    "Nap": "Kedd",
+    "Tol": "12:00",
+    "Ig": "13:30",
+    "Helyszin": "32 ea.",
+    "Oktato": "Farkas Levente",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Algoritmusok és vizsgálatuk",
+    "Nap": "Kedd",
+    "Tol": "14:00",
+    "Ig": "15:30",
+    "Helyszin": "A1 305-6",
+    "Oktato": "Dr. Házy Attila",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Algoritmusok és vizsgálatuk",
+    "Nap": "Kedd",
+    "Tol": "16:00",
+    "Ig": "17:30",
+    "Helyszin": "A1 305-6",
+    "Oktato": "Dr. Házy Attila",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Webes Adatkezelő környezetek",
+    "Nap": "Szerda",
+    "Tol": "08:00",
+    "Ig": "10:30",
+    "Helyszin": "A1 310",
+    "Oktato": "Dr. Kovács László",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Webes Adatkezelő környezetek",
+    "Nap": "Szerda",
+    "Tol": "10:00",
+    "Ig": "11:30",
+    "Helyszin": "IN 103",
+    "Oktato": "Dr. Bednarik László",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Webtechnológiák I.",
+    "Nap": "Szerda",
+    "Tol": "12:00",
+    "Ig": "13:30",
+    "Helyszin": "IN 103",
+    "Oktato": "Dr. Bednarik László",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Vállalati Információs Rendszerek Fejlesztése",
+    "Nap": "Szerda",
+    "Tol": "14:00",
+    "Ig": "15:30",
+    "Helyszin": "IN 103",
+    "Oktato": "Dr. Sasvári Péter",
+    "Szak": "Programtervező informatikus Bsc"
+  },
+  {
+    "Targy": "Vállalati Információs Rendszerek Fejlesztése",
+    "Nap": "Szerda",
+    "Tol": "16:00",
+    "Ig": "17:30",
+    "Helyszin": "IN 103",
+    "Oktato": "Dr. Sasvári Péter",
+    "Szak": "Programtervező informatikus Bsc Bsc"
+  }
+]
