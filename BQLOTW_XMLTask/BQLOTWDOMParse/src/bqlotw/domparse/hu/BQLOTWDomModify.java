@@ -22,7 +22,7 @@ public class BQLOTWDomModify {
             Document doc = dBuilder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            // 1. Add a new book
+            // 1. Új könyv hozzáadása
             System.out.println("1. Új könyv hozzáadása...");
             Element root = doc.getDocumentElement();
             
@@ -53,7 +53,7 @@ public class BQLOTWDomModify {
             root.insertBefore(newKonyv, firstSzerzoje);
             System.out.println("   Új könyv hozzáadva.");
 
-            // 2. Modify the price of '1984'
+            // 2. 1984 című könyv árának módosítása
             System.out.println("\n2. Az '1984' című könyv árának módosítása...");
             NodeList konyvek = doc.getElementsByTagName("könyv");
             for (int i = 0; i < konyvek.getLength(); i++) {
@@ -63,7 +63,7 @@ public class BQLOTWDomModify {
                     if ("978-0-14-028329-7".equals(konyvElement.getAttribute("isbn"))) {
                         NodeList arNodeList = konyvElement.getElementsByTagName("ár");
                         if (arNodeList.getLength() > 0) {
-                            arNodeList.item(0).setTextContent("3999.00");
+                            arNodeList.item(0).setTextContent("45000.00");
                             System.out.println("   Az '1984' ára frissítve.");
                         }
                         break; 
@@ -71,7 +71,7 @@ public class BQLOTWDomModify {
                 }
             }
 
-            // 3. Add a new author
+            // 3. Új szerző hozzáadása
             System.out.println("\n3. Új szerző hozzáadása...");
             Element newIro = doc.createElement("író");
             newIro.setAttribute("íróID", "6");
@@ -99,7 +99,7 @@ public class BQLOTWDomModify {
             root.insertBefore(newIro, firstTartalmaz);
             System.out.println("   Új szerző, 'Frank Herbert' hozzáadva.");
 
-            // Write the content into a new xml file
+            // Kiírás egy úgy xml fájlba
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
