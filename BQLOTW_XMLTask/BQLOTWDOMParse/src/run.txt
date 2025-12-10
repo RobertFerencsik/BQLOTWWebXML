@@ -1,4 +1,4 @@
-from src
+cd BQLOTWDOMParse/src
 
 javac bqlotw/domparse/hu/*.java
 java bqlotw.domparse.hu.BQLOTWDomRead

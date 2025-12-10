@@ -59,7 +59,7 @@
     </könyv>
 
     <!-- Szerzője kapcsolatok -->
-    <szerzője isbn="978-3-16-148410-0" íróID="1"/>
+    <könyv adószám="12345678" isbn="978-1-23-456789-0" leltárID="1"><cím>Az XML-feldolgozás művészete</cím><műfaj>Műszaki</műfaj><ár>7990.00</ár><készlet>25</készlet></könyv><szerzője isbn="978-3-16-148410-0" íróID="1"/>
     <szerzője isbn="978-0-14-028329-7" íróID="2"/>
     <szerzője isbn="978-963-07-8656-4" íróID="3"/> <!-- Gárdonyi -> Egri csillagok -->
     <szerzője isbn="978-963-324-504-8" íróID="4"/> <!-- Rowling -> Harry Potter -->
@@ -112,7 +112,7 @@
     </író>
 
     <!-- Tartalmaz kapcsolatok -->
-    <tartalmaz eladásID="1" isbn="978-3-16-148410-0"/>
+    <író íróID="6"><név><vezetéknév>Herbert</vezetéknév><keresztnév>Frank</keresztnév></név><születésiDátum>1920-10-08</születésiDátum><nemzetiség>Amerikai</nemzetiség></író><tartalmaz eladásID="1" isbn="978-3-16-148410-0"/>
     <tartalmaz eladásID="1" isbn="978-0-14-028329-7"/>
     <tartalmaz eladásID="2" isbn="978-963-07-8656-4"/> <!-- Vettek egy Egri csillagokat -->
     <tartalmaz eladásID="2" isbn="978-963-324-504-8"/> <!-- És egy Harry Pottert -->
@@ -162,4 +162,4 @@
         <székhely>Budapest, HU</székhely>
     </kiadó>
 
-<könyv adoszam="12345678" isbn="978-1-23-456789-0" leltarID="1"><cím>Az XML-feldolgozás művészete</cím><műfaj>Műszaki</műfaj><ár>7990.00</ár><készlet>25</készlet></könyv><író íróID="6"><név><vezetéknév>Herbert</vezetéknév><keresztnév>Frank</keresztnév></név><születésiDátum>1920-10-08</születésiDátum><nemzetiség>Amerikai</nemzetiség></író></könyvesboltok>
+</könyvesboltok>

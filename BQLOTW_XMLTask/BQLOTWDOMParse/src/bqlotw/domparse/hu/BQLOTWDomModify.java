@@ -1,21 +1,16 @@
 package bqlotw.domparse.hu;
 
 import java.io.File;
-import java.io.IOException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class BQLOTWDomModify {
 
@@ -32,9 +27,9 @@ public class BQLOTWDomModify {
             Element root = doc.getDocumentElement();
             
             Element newKonyv = doc.createElement("könyv");
+            newKonyv.setAttribute("adószám", "12345678");
             newKonyv.setAttribute("isbn", "978-1-23-456789-0");
-            newKonyv.setAttribute("leltarID", "1");
-            newKonyv.setAttribute("adoszam", "12345678");
+            newKonyv.setAttribute("leltárID", "1");
 
             Element cim = doc.createElement("cím");
             cim.appendChild(doc.createTextNode("Az XML-feldolgozás művészete"));
@@ -52,7 +47,10 @@ public class BQLOTWDomModify {
             keszlet.appendChild(doc.createTextNode("25"));
             newKonyv.appendChild(keszlet);
 
-            root.appendChild(newKonyv);
+            // A 'könyv' elemeket a 'szerzője' elemek elé kell beszúrni
+            NodeList szerzojeList = doc.getElementsByTagName("szerzője");
+            Node firstSzerzoje = szerzojeList.getLength() > 0 ? szerzojeList.item(0) : null;
+            root.insertBefore(newKonyv, firstSzerzoje);
             System.out.println("   Új könyv hozzáadva.");
 
             // 2. Modify the price of '1984'
@@ -95,7 +93,10 @@ public class BQLOTWDomModify {
             nemzetiseg.setTextContent("Amerikai");
             newIro.appendChild(nemzetiseg);
             
-            root.appendChild(newIro);
+            // Az 'író' elemeket a 'tartalmaz' elemek elé kell beszúrni
+            NodeList tartalmazList = doc.getElementsByTagName("tartalmaz");
+            Node firstTartalmaz = tartalmazList.getLength() > 0 ? tartalmazList.item(0) : null;
+            root.insertBefore(newIro, firstTartalmaz);
             System.out.println("   Új szerző, 'Frank Herbert' hozzáadva.");
 
             // Write the content into a new xml file
